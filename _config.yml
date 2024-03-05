@@ -1,9 +1,9 @@
-title: Teacher 2.0
-description: "August 2023 to June 2024"
-owner_name: John Mortensen
-github_username: nighthawkcoders
-github_repo: "teacher_portfolio"
-baseurl: "/teacher_portfolio"
+title: Vibha Blog
+description: "CSSE 2 Blog"
+owner_name: Vibha Mandayam
+github_username: vibha1019
+github_repo: "csse_2"
+baseurl: "/csse_2"
 future: true
 remote_theme: jekyll/minima
 minima:
