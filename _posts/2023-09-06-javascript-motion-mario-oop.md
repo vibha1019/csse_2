@@ -10,7 +10,7 @@ type: ccc
 
 {% assign sprite_file = site.baseurl | append: page.image %}
 {% assign hash = site.data.mario_metadata %}
-{% assign pixels = 500 %}
+{% assign pixels = 512 %}
 
 <p id="mario" class="sprite"></p>
   
