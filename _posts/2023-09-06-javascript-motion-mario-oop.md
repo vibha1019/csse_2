@@ -22,8 +22,8 @@ type: ccc
   /*CSS style rules for the elements id and class above...
   */
   .sprite {
-    height: {{pixels}}px;
-    width: {{pixels}}px;
+    height: {{pixels * 2}}px; /* Double the height */
+    width: {{pixels * 2}}px; /* Double the width */
     background-image: url('{{sprite_file}}');
     background-repeat: no-repeat;
   }
