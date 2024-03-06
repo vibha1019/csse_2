@@ -10,7 +10,7 @@ type: ccc
 
 {% assign sprite_file = site.baseurl | append: page.image %}
 {% assign hash = site.data.mario_metadata %}
-{% assign pixels = 512 %}
+{% assign pixels = 512 %} <!-- Increase pixel size to make the sprite bigger -->
 
 <p id="mario" class="sprite"></p>
   
@@ -161,9 +161,6 @@ type: ccc
   });
 
   document.addEventListener("DOMContentLoaded", () => {
-    const scale = window.devicePixelRatio;
-    const sprite = document.querySelector(".sprite");
-    sprite.style.transform = `scale(${0.2 * scale})`;
     mario.startResting();
   });
 
