@@ -39,7 +39,6 @@ hide: true
   }
 </style>
 
-<!--- Embedded executable code--->
 <script>
   ////////// convert YML hash to JavaScript key:value objects /////////
 
@@ -71,10 +70,11 @@ hide: true
       this.marioElement.style.position = "absolute";
     }
 
-    animate(obj, speed, interval) {
+    animate(obj, speed, interval, loop) {
       let frame = 0;
       const row = obj.row * this.pixels;
       this.currentSpeed = speed;
+      let loops = 0;
 
       this.tID = setInterval(() => {
         const col = (frame + obj.col) * this.pixels;
@@ -88,62 +88,69 @@ hide: true
         if (this.positionX > viewportWidth - this.pixels) {
           document.documentElement.scrollLeft = this.positionX - viewportWidth + this.pixels;
         }
+
+        if (!loop) {
+          loops++;
+          if (loops >= obj.frames) {
+            clearInterval(this.tID);
+          }
+        }
       }, interval);
     }
 
     startWalkingRight() {
       this.stopAnimate();
-      this.animate(this.obj["Walk"], 3, this.walkingInterval);
+      this.animate(this.obj["Walk"], 3, this.walkingInterval, true);
       this.facingLeft = false;
     }
 
     startRunningRight() {
       this.stopAnimate();
-      this.animate(this.obj["Run1"], 6, this.runningInterval);
+      this.animate(this.obj["Run1"], 6, this.runningInterval, true);
       this.facingLeft = false;
     }
 
     startWalkingLeft() {
       this.stopAnimate();
-      this.animate(this.obj["WalkL"], -3, this.walkingInterval);  // Negative speed for left movement
+      this.animate(this.obj["WalkL"], -3, this.walkingInterval, true);  // Negative speed for left movement
       this.facingLeft = true;
     }
 
     startRunningLeft() {
       this.stopAnimate();
-      this.animate(this.obj["Run1L"], -6, this.runningInterval);  // Negative speed for left movement
+      this.animate(this.obj["Run1L"], -6, this.runningInterval, true);  // Negative speed for left movement
       this.facingLeft = true;
     }
 
     startPuffing() {
       this.stopAnimate();
       if (this.facingLeft) {
-        this.animate(this.obj["PuffL"], 0, this.walkingInterval);
+        this.animate(this.obj["PuffL"], 0, this.walkingInterval, true);
       } else {
-        this.animate(this.obj["Puff"], 0, this.walkingInterval);
+        this.animate(this.obj["Puff"], 0, this.walkingInterval, true);
       }
     }
 
     startCheering() {
       this.stopAnimate();
-      this.animate(this.obj["Cheer"], 0, this.walkingInterval);
+      this.animate(this.obj["Cheer"], 0, this.walkingInterval, true);
     }
 
     startFlipping() {
       this.stopAnimate();
       if (this.facingLeft) {
-        this.animate(this.obj["FlipL"], 0, this.walkingInterval);
+        this.animate(this.obj["FlipL"], 0, this.walkingInterval, false);
       } else {
-        this.animate(this.obj["Flip"], 0, this.walkingInterval);
+        this.animate(this.obj["Flip"], 0, this.walkingInterval, false);
       }
     }
 
     startResting() {
       this.stopAnimate();
       if (this.facingLeft) {
-        this.animate(this.obj["RestL"], 0, this.walkingInterval);
+        this.animate(this.obj["RestL"], 0, this.walkingInterval, true);
       } else {
-        this.animate(this.obj["Rest"], 0, this.walkingInterval);
+        this.animate(this.obj["Rest"], 0, this.walkingInterval, true);
       }
     }
 
@@ -190,6 +197,7 @@ hide: true
   });
 
 </script>
+
 
 Investing in Your Technical Future
 
