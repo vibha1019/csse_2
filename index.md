@@ -62,15 +62,16 @@ hide: true
       this.tID = null;  // Capture setInterval() task ID
       this.positionX = 0;  // Current position of sprite in X direction
       this.currentSpeed = 0;
+      this.runningInterval = 50; // Animation time interval for running (50 milliseconds for faster animation)
+      this.walkingInterval = 100; // Animation time interval for walking (original speed)
       this.facingLeft = false; // Initially facing right
       this.marioElement = document.getElementById("mario"); // HTML element of sprite
       this.pixels = {{pixels}}; // Pixel offset of images in the sprite, set by liquid constant
-      this.interval = 50; // Animation time interval (50 milliseconds for faster animation)
       this.obj = meta_data;
       this.marioElement.style.position = "absolute";
     }
 
-    animate(obj, speed) {
+    animate(obj, speed, interval) {
       let frame = 0;
       const row = obj.row * this.pixels;
       this.currentSpeed = speed;
@@ -87,62 +88,62 @@ hide: true
         if (this.positionX > viewportWidth - this.pixels) {
           document.documentElement.scrollLeft = this.positionX - viewportWidth + this.pixels;
         }
-      }, this.interval);
+      }, interval);
     }
 
     startWalkingRight() {
       this.stopAnimate();
-      this.animate(this.obj["Walk"], 3);
+      this.animate(this.obj["Walk"], 3, this.walkingInterval);
       this.facingLeft = false;
     }
 
     startRunningRight() {
       this.stopAnimate();
-      this.animate(this.obj["Run1"], 6);
+      this.animate(this.obj["Run1"], 6, this.runningInterval);
       this.facingLeft = false;
     }
 
     startWalkingLeft() {
       this.stopAnimate();
-      this.animate(this.obj["WalkL"], -3);  // Negative speed for left movement
+      this.animate(this.obj["WalkL"], -3, this.walkingInterval);  // Negative speed for left movement
       this.facingLeft = true;
     }
 
     startRunningLeft() {
       this.stopAnimate();
-      this.animate(this.obj["Run1L"], -6);  // Negative speed for left movement
+      this.animate(this.obj["Run1L"], -6, this.runningInterval);  // Negative speed for left movement
       this.facingLeft = true;
     }
 
     startPuffing() {
       this.stopAnimate();
       if (this.facingLeft) {
-        this.animate(this.obj["PuffL"], 0);
+        this.animate(this.obj["PuffL"], 0, this.walkingInterval);
       } else {
-        this.animate(this.obj["Puff"], 0);
+        this.animate(this.obj["Puff"], 0, this.walkingInterval);
       }
     }
 
     startCheering() {
       this.stopAnimate();
-      this.animate(this.obj["Cheer"], 0);
+      this.animate(this.obj["Cheer"], 0, this.walkingInterval);
     }
 
     startFlipping() {
       this.stopAnimate();
       if (this.facingLeft) {
-        this.animate(this.obj["FlipL"], 0);
+        this.animate(this.obj["FlipL"], 0, this.walkingInterval);
       } else {
-        this.animate(this.obj["Flip"], 0);
+        this.animate(this.obj["Flip"], 0, this.walkingInterval);
       }
     }
 
     startResting() {
       this.stopAnimate();
       if (this.facingLeft) {
-        this.animate(this.obj["RestL"], 0);
+        this.animate(this.obj["RestL"], 0, this.walkingInterval);
       } else {
-        this.animate(this.obj["Rest"], 0);
+        this.animate(this.obj["Rest"], 0, this.walkingInterval);
       }
     }
 
