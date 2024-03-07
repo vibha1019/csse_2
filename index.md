@@ -147,18 +147,23 @@ hide: true
   window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      if (mario.currentSpeed === 0 || mario.currentSpeed === -3 || mario.currentSpeed === -6) {
-        mario.startWalkingRight();
-      } else if (mario.currentSpeed === 3) {
-        mario.startRunningRight();
+        if (mario.currentSpeed === 0 || mario.currentSpeed === -3 || mario.currentSpeed === -6) {
+          mario.startWalkingRight();
+        } else if (mario.currentSpeed === 3) {
+          mario.startRunningRight();
+        }
       }
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
       if (mario.currentSpeed === 0 || mario.currentSpeed === 3 || mario.currentSpeed === 6) {
-        mario.startWalkingLeft();
-      } else if (mario.currentSpeed === -3) {
-        mario.startRunningLeft();
+          mario.startWalkingLeft();
+        } else if (mario.currentSpeed === -3) {
+          mario.startRunningLeft();
+        }
       }
+    } else if (event.key === "c") {
+      event.preventDefault();
+      mario.startCheering();
     } else if (event.key === "p") {
       event.preventDefault();
       mario.startPuffing();
