@@ -65,7 +65,7 @@ hide: true
       this.facingLeft = false; // Initially facing right
       this.marioElement = document.getElementById("mario"); // HTML element of sprite
       this.pixels = {{pixels}}; // Pixel offset of images in the sprite, set by liquid constant
-      this.interval = 100; // Animation time interval
+      this.interval = 50; // Animation time interval (50 milliseconds for faster animation)
       this.obj = meta_data;
       this.marioElement.style.position = "absolute";
     }
