@@ -147,29 +147,27 @@ hide: true
   window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      if (event.repeat) {
-        mario.startCheering();
-      } else {
-        if (mario.currentSpeed === 0 || mario.currentSpeed === -3 || mario.currentSpeed === -6) {
-          mario.startWalkingRight();
-        } else if (mario.currentSpeed === 3) {
-          mario.startRunningRight();
-        }
+      if (mario.currentSpeed === 0 || mario.currentSpeed === -3 || mario.currentSpeed === -6) {
+        mario.startWalkingRight();
+      } else if (mario.currentSpeed === 3) {
+        mario.startRunningRight();
       }
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
-      if (event.repeat) {
-        mario.startCheering();
-      } else {
-        if (mario.currentSpeed === 0 || mario.currentSpeed === 3 || mario.currentSpeed === 6) {
-          mario.startWalkingLeft();
-        } else if (mario.currentSpeed === -3) {
-          mario.startRunningLeft();
-        }
+      if (mario.currentSpeed === 0 || mario.currentSpeed === 3 || mario.currentSpeed === 6) {
+        mario.startWalkingLeft();
+      } else if (mario.currentSpeed === -3) {
+        mario.startRunningLeft();
       }
-    } else if (event.key === "c") {
+    } else if (event.key === "p") {
       event.preventDefault();
-      mario.startCheering();
+      mario.startPuffing();
+    } else if (event.key === "f") {
+      event.preventDefault();
+      mario.startFlipping();
+    } else if (event.key === "r") {
+      event.preventDefault();
+      mario.startResting();
     }
   });
 
