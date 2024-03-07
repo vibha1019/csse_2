@@ -168,9 +168,6 @@ hide: true
     } else if (event.key === "r") {
       event.preventDefault();
       mario.startResting();
-      else if (event.key === "c") {
-      event.preventDefault();
-      mario.startCheering();
     }
   });
 
