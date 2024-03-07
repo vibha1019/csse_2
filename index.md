@@ -62,6 +62,7 @@ hide: true
       this.tID = null;  // Capture setInterval() task ID
       this.positionX = 0;  // Current position of sprite in X direction
       this.currentSpeed = 0;
+      this.facingLeft = false; // Initially facing right
       this.marioElement = document.getElementById("mario"); // HTML element of sprite
       this.pixels = {{pixels}}; // Pixel offset of images in the sprite, set by liquid constant
       this.interval = 100; // Animation time interval
@@ -92,26 +93,34 @@ hide: true
     startWalkingRight() {
       this.stopAnimate();
       this.animate(this.obj["Walk"], 3);
+      this.facingLeft = false;
     }
 
     startRunningRight() {
       this.stopAnimate();
       this.animate(this.obj["Run1"], 6);
+      this.facingLeft = false;
     }
 
     startWalkingLeft() {
       this.stopAnimate();
       this.animate(this.obj["WalkL"], -3);  // Negative speed for left movement
+      this.facingLeft = true;
     }
 
     startRunningLeft() {
       this.stopAnimate();
       this.animate(this.obj["Run1L"], -6);  // Negative speed for left movement
+      this.facingLeft = true;
     }
 
     startPuffing() {
       this.stopAnimate();
-      this.animate(this.obj["Puff"], 0);
+      if (this.facingLeft) {
+        this.animate(this.obj["PuffL"], 0);
+      } else {
+        this.animate(this.obj["Puff"], 0);
+      }
     }
 
     startCheering() {
@@ -121,12 +130,20 @@ hide: true
 
     startFlipping() {
       this.stopAnimate();
-      this.animate(this.obj["Flip"], 0);
+      if (this.facingLeft) {
+        this.animate(this.obj["FlipL"], 0);
+      } else {
+        this.animate(this.obj["Flip"], 0);
+      }
     }
 
     startResting() {
       this.stopAnimate();
-      this.animate(this.obj["Rest"], 0);
+      if (this.facingLeft) {
+        this.animate(this.obj["RestL"], 0);
+      } else {
+        this.animate(this.obj["Rest"], 0);
+      }
     }
 
     stopAnimate() {
