@@ -18,7 +18,9 @@ hide: true
 
 <!--- HTML for page contains <p> tag named "Mario" and class properties for a "sprite"  -->
 
-<p id="mario" class="sprite"></p>
+<button onclick="startMario()">Start Mario</button>
+
+<p id="mario" class="sprite" style="display: none;"></p>
   
 <!--- Embedded Cascading Style Sheet (CSS) rules, define how HTML elements look --->
 <style>
@@ -136,79 +138,41 @@ hide: true
 
   ////////// event control /////////
 
- // Event control
-window.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowRight") {
-    event.preventDefault();
-    if (event.repeat) {
-      mario.startCheering();
-    } else {
-      if (mario.currentSpeed === 0 || mario.currentSpeed === -3 || mario.currentSpeed === -6) {
-        mario.startWalkingRight();
-      } else if (mario.currentSpeed === 3) {
-        mario.startRunningRight();
-      } else if (mario.currentSpeed === 6) {
-        mario.startResting();
+  function startMario() {
+    document.getElementById("mario").style.display = "block";
+    mario.startResting();
+  }
+
+  // Event control
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      if (event.repeat) {
+        mario.startCheering();
+      } else {
+        if (mario.currentSpeed === 0 || mario.currentSpeed === -3 || mario.currentSpeed === -6) {
+          mario.startWalkingRight();
+        } else if (mario.currentSpeed === 3) {
+          mario.startRunningRight();
+        }
       }
-    }
-  } else if (event.key === "ArrowLeft") {
-    event.preventDefault();
-    if (event.repeat) {
-      mario.startCheering();
-    } else {
-      if (mario.currentSpeed === 0 || mario.currentSpeed === 3 || mario.currentSpeed === 6) {
-        mario.startWalkingLeft();
-      } else if (mario.currentSpeed === -3) {
-        mario.startRunningLeft();
-      } else if (mario.currentSpeed === -6) {
-        mario.startResting();
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      if (event.repeat) {
+        mario.startCheering();
+      } else {
+        if (mario.currentSpeed === 0 || mario.currentSpeed === 3 || mario.currentSpeed === 6) {
+          mario.startWalkingLeft();
+        } else if (mario.currentSpeed === -3) {
+          mario.startRunningLeft();
+        }
       }
+    } else if (event.key === "c") {
+      event.preventDefault();
+      mario.startCheering();
     }
-  }
-  if (event.key === "Enter") {
-    event.preventDefault();
-    mario.startFlipping();
-  }
-  if (event.key === "Space") {
-    event.preventDefault();
-    mario.stopAnimate();
-  }
-});
+  });
 
-// Touch events that enable animations
-window.addEventListener("touchstart", (event) => {
-  event.preventDefault(); // Prevent default browser action
-  if (event.touches[0].clientX > window.innerWidth / 2) {
-    // Move right
-    if (mario.currentSpeed === 0) { // If at rest, go to walking
-      mario.startWalking();
-    } else if (mario.currentSpeed === 3) { // If walking, go to running
-      mario.startRunning();
-    }
-  } else {
-    // Move left
-    mario.startPuffing();
-  }
-});
-
-// Stop animation on window blur
-window.addEventListener("blur", () => {
-  mario.stopAnimate();
-});
-
-// Start animation on window focus
-window.addEventListener("focus", () => {
-  mario.startFlipping();
-});
-
-// Start animation on page load or page refresh
-document.addEventListener("DOMContentLoaded", () => {
-  // Adjust sprite size for high pixel density devices
-  const scale = window.devicePixelRatio;
-  const sprite = document.querySelector(".sprite");
-  sprite.style.transform = `scale(${0.2 * scale})`;
-  mario.startResting();
-});
 </script>
 
 Investing in Your Technical Future
