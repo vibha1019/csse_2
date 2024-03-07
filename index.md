@@ -18,7 +18,7 @@ hide: true
 
 <!--- HTML for page contains <p> tag named "Mario" and class properties for a "sprite"  -->
 
-<button onclick="startMario()" class="start-button">Start Mario</button>
+<button onclick="startMario()">Start Mario</button>
 
 <p id="mario" class="sprite" style="display: none;"></p>
   
@@ -36,32 +36,6 @@ hide: true
   /* Background position of sprite element */
   #mario {
     background-position: calc({{mario_metadata["Walk"].col}} * {{pixels}} * -1px) calc({{mario_metadata["Walk"].row}} * {{pixels}}* -1px);
-  }
-
-  /* Button styling */
-  .start-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  }
-
-  .start-button:hover {
-    background-color: #45a049; /* Darker green */
-  }
-
-  .start-button:active {
-    background-color: #3e8e41; /* Darker when clicked */
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
   }
 </style>
 
@@ -173,23 +147,18 @@ hide: true
   window.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
       event.preventDefault();
-        if (mario.currentSpeed === 0 || mario.currentSpeed === -3 || mario.currentSpeed === -6) {
-          mario.startWalkingRight();
-        } else if (mario.currentSpeed === 3) {
-          mario.startRunningRight();
-        }
+      if (mario.currentSpeed === 0 || mario.currentSpeed === -3 || mario.currentSpeed === -6) {
+        mario.startWalkingRight();
+      } else if (mario.currentSpeed === 3) {
+        mario.startRunningRight();
       }
     } else if (event.key === "ArrowLeft") {
       event.preventDefault();
       if (mario.currentSpeed === 0 || mario.currentSpeed === 3 || mario.currentSpeed === 6) {
-          mario.startWalkingLeft();
-        } else if (mario.currentSpeed === -3) {
-          mario.startRunningLeft();
-        }
+        mario.startWalkingLeft();
+      } else if (mario.currentSpeed === -3) {
+        mario.startRunningLeft();
       }
-    } else if (event.key === "c") {
-      event.preventDefault();
-      mario.startCheering();
     } else if (event.key === "p") {
       event.preventDefault();
       mario.startPuffing();
