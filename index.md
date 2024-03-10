@@ -225,19 +225,23 @@ hide: true
     <style>
         body {
             font-family: Arial, sans-serif;
-            color: #333; /* Default text color */
+            color: #FFF; /* Default text color on black background */
+            background-color: #000; /* Black background */
         }
+
         h1 {
             font-family: 'Times New Roman', serif; /* Custom font for headings */
-            color: #990000; /* Custom color for headings */
+            color: #FF69B4; /* Custom color for headings (pink) */
         }
+
         h2 {
             font-family: 'Times New Roman', serif; /* Custom font for headings */
-            color: #006600; /* Custom color for headings */
+            color: #87CEEB; /* Custom color for headings (light blue) */
         }
+
         p {
             font-family: 'Arial', sans-serif; /* Custom font for paragraphs */
-            color: #333; /* Custom color for paragraphs */
+            color: #FFF; /* Custom color for paragraphs (white) */
         }
     </style>
 </head>
