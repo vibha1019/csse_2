@@ -199,12 +199,7 @@ hide: true
 </script>
 
 
-Investing in Your Technical Future
+Vibha Mandayam 
 
-Explore the Computer Science Pathway at Del Norte High School. All Del Norte CompSci classes are designed to provide a real-world development experience. Grading is focused on time invested, analytics, participation with peers, and engagement in learning.
+I am a freshmen at DNHS, and excited to learn more about computer science throughout the classes I take this year. 
 
-- Project-based learning with teacher support
-- Tech Talks by teacher complemented with Student Teaching
-- Course learning includes Coding Languages, DevOps, GitHub, Research, and Creativity
-- Student teams practice Agile Development Methodologies: planning, communication, collaboration
-- Class lab time provided and approximately 2-3 hours of homework per week
