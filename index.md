@@ -197,9 +197,32 @@ hide: true
   });
 
 </script>
+<style>
+  h1 {
+    font-family: 'Courier New', serif;
+    color: violet;
+  }
 
+  h2 {
+    font-family: 'Courier New', serif;
+    color: violet;
+  }
 
-Vibha Mandayam 
+  h3 {
+    font-family: 'Courier New', serif;
+    color: violet;
+  }
 
-I am a freshmen at DNHS, and excited to learn more about computer science throughout the classes I take this year. 
+  p {
+    font-family: 'Courier New', sans-serif;
+    color: beige;
+  }
+</style>
 
+# Vibha Mandayam
+
+## Introductions 
+My name is Vibha Mandayam, and I am a freshman at DNHS. I'm excited to learn more about computer science through the classes I take in the next 4 years
+
+## Goals
+I am excited to create more games and app development. My group was able to creaate a game last trimester, and I would like to continue making more advanced projects in the future. 
