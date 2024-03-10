@@ -219,10 +219,37 @@ hide: true
   }
 </style>
 
-# Vibha Mandayam
+<html>
+<head>
+    <title>Vibha's Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333; /* Default text color */
+        }
+        h1 {
+            font-family: 'Times New Roman', serif; /* Custom font for headings */
+            color: #990000; /* Custom color for headings */
+        }
+        h2 {
+            font-family: 'Times New Roman', serif; /* Custom font for headings */
+            color: #006600; /* Custom color for headings */
+        }
+        p {
+            font-family: 'Arial', sans-serif; /* Custom font for paragraphs */
+            color: #333; /* Custom color for paragraphs */
+        }
+    </style>
+</head>
+<body>
 
-## Introductions 
-My name is Vibha Mandayam, and I am a freshman at DNHS. I'm excited to learn more about computer science through the classes I take in the next 4 years
+<h1>Vibha Mandayam</h1>
 
-## Goals
-I am excited to create more games and app development. My group was able to creaate a game last trimester, and I would like to continue making more advanced projects in the future. 
+<h2>Introduction</h2>
+<p>My name is Vibha Mandayam, and I am a freshman at DNHS. I'm excited to learn more about computer science through the classes I take in the next 4 years.</p>
+
+<h2>Goals</h2>
+<p>I am excited to create more games and apps. My group was able to create a game last trimester, and I would like to continue making more advanced projects in the future.</p>
+
+</body>
+</html>
