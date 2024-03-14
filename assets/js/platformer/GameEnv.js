@@ -27,6 +27,9 @@ export class GameEnv {
     static time = 0; // Initialize time variable
     static timerInterval; // Variable to hold the interval reference
 
+    // score property
+    static score = 0; // Initialize score variable
+
     // Make the constructor private to prevent instantiation
     constructor() {
         throw new Error('GameEnv is a static class and cannot be instantiated.');
@@ -38,10 +41,13 @@ export class GameEnv {
             gameObject.update();
             gameObject.draw();
         }
+
+        // Update score and time
+        GameEnv.time += 1; // Increment time by 1 each frame
     }
 
-     // Setter for Top position
-     static setTop() {
+    // Setter for Top position
+    static setTop() {
         // set top of game as header height
         const header = document.querySelector('header');
         if (header) {
@@ -52,22 +58,21 @@ export class GameEnv {
     // Setter for Bottom position
     static setBottom() {
         // sets the bottom or gravity 0
-        this.bottom =
-        this.top + this.backgroundHeight;
+        this.bottom = this.top + this.backgroundHeight;
     }
 
     // Setup for Game Environment 
     static initialize() {
-        // store previous for ratio calculatins on resize
+        // store previous for ratio calculations on resize
         this.prevInnerWidth = this.innerWidth;
         this.prevBottom = this.bottom;
     
-        // game uses available width and heith
+        // game uses available width and height
         this.innerWidth = window.innerWidth;
         this.innerHeight = window.innerHeight;
 
         this.setTop();
-        //this.setBottom(); // must be called in platformer objects
+        // this.setBottom(); // must be called in platformer objects
     }
 
     // Resize for Game Objects
@@ -77,15 +82,6 @@ export class GameEnv {
         // Call the sizing method on all game objects
         for (var gameObject of GameEnv.gameObjects){
             gameObject.size();
-        }
-    }
-
-    static update() {
-        // Update game state, including all game objects
-        for (const gameObject of GameEnv.gameObjects) {
-            gameObject.update();
-            gameObject.serialize();
-            gameObject.draw();
         }
     }
 
