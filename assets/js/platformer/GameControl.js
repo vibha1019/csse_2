@@ -1,40 +1,11 @@
 import GameEnv from './GameEnv.js';
 
-/* GameControl is an object literal.
- *   Informerly GameControl looks like defining a variable with methods.
- *   By definition GameControl is a singleton object, without a constructor.
- *   This style of definition ensures one instance, an object literal.
- *   
- *   Observe, encapulation of this.inTransition and sharing between methods.
-*/
-
 const GameControl = {
+    // Existing methods...
 
-    // Level transition method (destroy then newlevel)
-    async transitionToLevel(newLevel) {
-        this.inTransition = true;
-
-        // Destroy existing game objects
-        GameEnv.destroy();
-
-        // Load GameLevel objects
-        await newLevel.load();
-        GameEnv.currentLevel = newLevel;
-
-        // Trigger a resize to redraw canvas elements
-        window.dispatchEvent(new Event('resize'));
-        // Update invert property, twice means same as before
-        toggleCanvasEffect.dispatchEvent(new Event('click'));
-        toggleCanvasEffect.dispatchEvent(new Event('click'));
-
-        this.inTransition = false;
-    },
-
-    // Game control loop
     gameLoop() {
         // Turn game loop off during transitions
         if (!this.inTransition) {
-
             // Get current level
             GameEnv.update();
             const currentLevel = GameEnv.currentLevel;
@@ -57,10 +28,15 @@ const GameControl = {
             }
         }
 
+        // Update score and time display
+        document.getElementById("scoreDisplay").innerText = `Score: ${GameEnv.score}`;
+        document.getElementById("timeDisplay").innerText = `Time: ${GameEnv.time}`;
+
         // recycle gameLoop, aka recursion
         requestAnimationFrame(this.gameLoop.bind(this));  
     },
 
+    // Existing methods...
 };
 
 export default GameControl;
