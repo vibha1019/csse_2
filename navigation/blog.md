@@ -5,4 +5,10 @@ search_exclude: true
 permalink: /blogs/
 ---
 
-https://github.com/vibha1019/cses_student/blob/main/_posts/2023-08-16-Tools_Hacks_Vibha.md
+<div class="rounded-link">
+  <a href="https://vibha1019.github.io/cses_student//2023/08/16/Tools_Hacks_Vibha.html">Read My Blog Post</a>
+</div>
+
+<div class="rounded-link">
+  <a href="https://vibha1019.github.io/cses_student//2023/08/31/Snake.html">Play Snake Game</a>
+</div>
