@@ -6,7 +6,7 @@ permalink: /blogs/
 ---
 
 <div class="rounded-link">
-  <a href="https://vibha1019.github.io/cses_student//2023/08/16/Tools_Hacks_Vibha.html">Read My Blog Post</a>
+  <a href="https://vibha1019.github.io/cses_student//2023/08/16/Tools_Hacks_Vibha.html">Rounded Corners</a>
 </div>
 
 <div class="rounded-link">
