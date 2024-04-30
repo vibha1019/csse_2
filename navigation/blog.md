@@ -14,7 +14,7 @@ permalink: /blogs/
 </div>
 
 <div class="rounded-link">
-  <a href="https://vibha1019.github.io/cses_student/2024/04/30/FiniteStateMachines.html
+  <a href="https://vibha1019.github.io/cses_student/2024/04/30/Finite_State_Machines.html
   ">Finite State Machines</a>
 </div>
 
