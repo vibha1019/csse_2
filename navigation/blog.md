@@ -20,3 +20,8 @@ permalink: /blogs/
 <div class="rounded-link">
   <a href="https://vibha1019.github.io/cses_student/2024/05/01/Java_Script_Objects.html">JavaScript Objects</a>
 </div>
+
+<div class="rounded-link">
+  <a href="https://vibha1019.github.io/cses_student/2024/05/02/Single_Responsability_Principle.html">Single Responsability Principle</a>
+</div>
+
