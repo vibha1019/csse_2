@@ -41,18 +41,19 @@ hide: true
 
 <script>
   ////////// convert YML hash to JavaScript key:value objects /////////
-
-  var mario_metadata = {}; // Key, value object
-  {% for key in hash %}  
   
-  var key = "{{key | first}}"  // Key
-  var values = {} // Values object
-  values["row"] = {{key.row}}
-  values["col"] = {{key.col}}
-  values["frames"] = {{key.frames}}
-  mario_metadata[key] = values; // Key with values added
+  var mario_metadata = {}; // Key, value object
+  {% for mario_key in hash %}
+  
+  var key = "{{mario_key[0]}}";  // Correct the key
+  var values = {}; // Values object
+  values["row"] = {{ mario_key[1].row }};
+  values["col"] = {{ mario_key[1].col }};
+  values["frames"] = {{ mario_key[1].frames }};
+  mario_metadata[key] = values;  // Assign key and values to mario_metadata
 
   {% endfor %}
+
 
   ////////// game object for player /////////
 
